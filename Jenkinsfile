@@ -19,16 +19,16 @@ pipeline {
               }
             } 
         }
-    /*  stage('Docker Build and Push') {
+      stage('Docker Build and Push') {
             steps {
               withDockerRegistry([credentialsId: "docker-hub",url: ""]) {
                 sh 'printenv'
-                sh 'docker build -t willguibr/numeric-app:""$GIT_COMMIT"" .'
-                sh 'docker push willguibr/numeric-app:""$GIT_COMMIT""'
+                sh 'docker build -t tlepono/numeric-app:""$GIT_COMMIT"" .'
+                sh 'docker push tlepono/numeric-app:""$GIT_COMMIT""'
             }
           }
         }
-    stage('Kubernetes Deployment - DEV') {
+   /* stage('Kubernetes Deployment - DEV') {
       steps {
         withKubeConfig([credentialsId: 'kubeconfig']) {
           sh "sed -i 's#replace#willguibr/numeric-app:${GIT_COMMIT}#g' k8s_deployment_service.yaml"
