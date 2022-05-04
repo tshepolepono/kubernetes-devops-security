@@ -8,18 +8,18 @@ pipeline {
               archive 'target/*.jar'
             }
         }
-    /*  stage('Unit Tests - Junit and Jacoco') {
+      stage('Unit Tests - Junit and Jacoco') {
             steps {
               sh "mvn test"
             }
-            post {
+        /*    post {
               always {
                 junit 'target/surefire-reports/*.xml'
                 jacoco execPattern: 'target/jacoco.exec'
               }
-            }
+            } */
         }
-      stage('Docker Build and Push') {
+    /*  stage('Docker Build and Push') {
             steps {
               withDockerRegistry([credentialsId: "docker-hub",url: ""]) {
                 sh 'printenv'
