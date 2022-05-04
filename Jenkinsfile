@@ -4,7 +4,7 @@ pipeline {
   stages {
       stage('Build Artifact') {
             steps {
-              sh "mvn clean package -DskipTests=true" //skip awe ww
+              sh "mvn clean package -DskipTests=true" //skip awe www
               archive 'target/*.jar'
             }
         }
