@@ -73,6 +73,9 @@ pipeline {
           },
           "Kubesec Scan": {
             sh "bash kubesec-scan.sh"
+          },
+          "Trivy Scan": {
+            sh "bash trivy-k8s-scan.sh"
           }
         )
       }
@@ -85,12 +88,12 @@ pipeline {
             withKubeConfig([credentialsId: 'kubeconfig']) {
               sh "bash k8s-deployment.sh"
             }
-          },
-          "Rollout Status": {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
-              sh "bash k8s-deployment-rollout-status.sh"
-            }
-          }
+          // },
+          // "Rollout Status": {
+          //   withKubeConfig([credentialsId: 'kubeconfig']) {
+          //     sh "bash k8s-deployment-rollout-status.sh"
+          //   }
+          // }
         )
       }
     }
